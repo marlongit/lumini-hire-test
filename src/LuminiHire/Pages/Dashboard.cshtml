@@ -1,12 +1,31 @@
 ﻿@page
+
+@using Newtonsoft.Json;
+
 @model LuminiHire.Pages.DashboardModel
 
 @{
 	ViewData["Title"] = "LuminiHire - Dashboar";
 }
 
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-ui.min.js"></script>
+<script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
+
 <h1>Dashboard</h1>
 <div class="container">
+
+	<div class="col-sm-4">
+		<div id="container"></div>
+	</div>
+
+	<div class="col-sm-4">
+		<div id="containerDetalhes"></div>
+	</div>
+
+	<div class="col-sm-4">
+		<div id="containerBarras"></div>
+	</div>
 
 	<div class="row">
 
@@ -15,6 +34,7 @@
 			<div class="card-body">
 				<h5 class="card-title">Total City: @Model.Dashboards.Select(s => s.Key).Count() </h5>
 			</div>
+
 			<div class="card-footer">
 				<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
 					Detalhes
@@ -22,7 +42,6 @@
 			</div>
 		</div>
 
-	
 		<div class="card col-sm-6">
 
 			<div class="card-body">
@@ -31,7 +50,80 @@
 		</div>
 	</div>
 	<hr />
+
 	<div class="collapse" id="collapseExample">
+
+		<div class="row">
+
+			<script>
+
+				anychart.onDocumentReady(function () {
+
+
+					var data = [['Total cities', @Model.Dashboards.Select(s => s.Key).Count()], ['Total Schools', @Model.Dashboards.Select(s => s.Value).Sum()]]
+
+					var chart = anychart.pie(data);
+					chart
+						.title('Total schools by city')
+						.radius('60%')
+						.innerRadius('40%');
+
+					chart.container('container');
+					chart.draw();
+
+					// Gráfico Detalhado
+
+					var data2 = [];
+
+					@foreach (var item in @Model.Dashboards)
+					{
+						@:data2.push(['@item.Key',@item.Value]);
+					}
+
+					var chart2 = anychart.pie(data2);
+
+					chart2
+						.title('Total schools by city')
+						.radius('60%')
+						.innerRadius('40%');
+
+					chart2.container('containerDetalhes');
+					chart2.draw();
+
+					//Gráfico de barras
+
+						// set stage
+						var stage = anychart.graphics.create("containerBarras");
+
+						// chart type
+						var chart = anychart.column();
+
+						// set title
+					chart.title("Total schools by city");
+
+						// set axes titles
+						chart.xAxis().title("Cities");
+						chart.yAxis().title("Schools");
+
+					var data3 = [];
+
+					@foreach (var item in @Model.Dashboards)
+					{
+						@:data3.push(['@item.Key',0,@item.Value]);
+					}
+
+						// set series data
+					chart.data(data3);
+
+						chart.container(stage);
+						chart.draw();
+
+				});
+
+			</script>
+
+		</div>
+
 		<h1>Total schools by city</h1>
 		<div class="row ">
 			@foreach (var item in Model.Dashboards)
