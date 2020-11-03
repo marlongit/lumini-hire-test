@@ -1,0 +1,43 @@
+﻿@page
+@model LuminiHire.Pages.RegistroModel
+
+@{
+	ViewData["Title"] = "LuminiHire - Novo Usuário";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h4>Registrar novo usuário</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="UsuarioRegistro.Email" class="control-label"></label>
+				<input asp-for="UsuarioRegistro.Email" class="form-control" />
+				<span asp-validation-for="UsuarioRegistro.Email" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UsuarioRegistro.Senha" class="control-label"></label>
+				<input asp-for="UsuarioRegistro.Senha" class="form-control" />
+				<span asp-validation-for="UsuarioRegistro.Senha" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="UsuarioRegistro.ConfirmarSenha" class="control-label"></label>
+				<input asp-for="UsuarioRegistro.ConfirmarSenha" class="form-control" />
+				<span asp-validation-for="UsuarioRegistro.ConfirmarSenha" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Salvar" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
+</div>
+
+@*<div>
+	<a asp-page="Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

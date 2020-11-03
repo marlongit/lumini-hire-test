@@ -163,3 +163,23 @@ Realizar a ingestão dos dados em "sample_data", "[CollegeScorecard_Raw_Data.zip
 * Razor Pages ou MVC
 * ASP.NET Identity
 * Elasticsearch
+
+
+------------------------------------------------------------------------
+
+### Desenvolvimento do teste para Lumini Hire - Dev SR
+## Autor: Marlon Everson
+
+### Foram utilizados 
+* dotnet core 3.1 
+* SQLite
+* Bootstrap
+* Razor Pages 
+* Entityframework
+* ASP.NET Identity
+* Elasticsearch Nest
+* Elasticsearch
+* Logstash
+
+A aplicação foi atualizada para versão 3.1 do dotnet core e foi desenvolvida utilizando o SQLite como banco base para a autenticação de usuário onde as telas chaves para controle foram criadas com Razor Pages.
+Para poder realizar a ingestão dos dados no Elasticsearch a nível de trabalhar melhor e com mais facilidade foi utilizado um dos modelos de arquivos disponibilizados como csv onde a importação utilizando o Logstash com o arquivo logstash.conf .

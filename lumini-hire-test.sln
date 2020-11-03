@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A1735760-33EC-11E9-A2AD-4F0D75C62EFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuminiHire", "src\LuminiHire\LuminiHire.csproj", "{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LuminiHire", "src\LuminiHire\LuminiHire.csproj", "{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,7 +30,13 @@ Global
 		{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86}.Release|x86.ActiveCfg = Release|Any CPU
 		{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1348443F-DCAF-4A89-8DE0-4C4EF71AFA86} = {A1735760-33EC-11E9-A2AD-4F0D75C62EFA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EB652A8-D4A0-4158-8A50-73F50F2847A2}
 	EndGlobalSection
 EndGlobal

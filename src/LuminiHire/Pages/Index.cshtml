@@ -1,10 +1,73 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+	ViewData["Title"] = "LuminiHire";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+
+	<article>
+
+		<h2>Desenvolvimento do teste para Lumini Hire - Dev SR</h2>
+		<h5>Autor: Marlon Everson</h5>
+
+		<ul>
+			Tecnologias utilizadas
+			<li>
+				* dotnet core 3.1
+			</li>
+			<li>
+				* SQLite
+			</li>
+			<li>
+				* Bootstrap
+			</li>
+			<li>
+				* Razor Pages
+			</li>
+			<li>
+				* Entityframework
+			</li>
+			<li>
+				* ASP.NET Identity
+			</li>
+			<li>
+				* Elasticsearch Nest
+			</li>
+			<li>
+				* Elasticsearch
+			</li>
+			<li>
+				* Logstash
+			</li>
+
+		</ul>
+
+
+		<p>
+			A aplicação foi atualizada para versão 3.1 do dotnet core e foi desenvolvida utilizando o SQLite como banco base para a autenticação de usuário onde as telas chaves para controle foram criadas com Razor Pages.
+			Para poder realizar a ingestão dos dados no Elasticsearch a nível de trabalhar melhor e com mais facilidade foi utilizado um dos modelos de arquivos disponibilizados como csv onde a importação utilizando o Logstash com o arquivo logstash.conf .
+		</p>
+
+		<h5>
+			Orientações de Navegação:
+		</h5>
+		<ul>
+			Tecnologias utilizadas
+			<li>
+				Pesquisar - Nesse item pode ser realizada a busca dos registros utilizando Elastisearch podendo definir os para metros de texto que deseja buscar por (City, Instnm, Zip ou Unitid )
+			</li>
+			<li>
+				Dashboard (Controle de Acesso) - Nesse item ser visualizado alguns dados realizados a partir da importação realizada no Elasticsearch
+			</li>
+			<li>
+				Login - Nesse ter acesso aos itens que estão com controle de acesso
+			</li>
+			<li>
+				Registro - Pode ser cadastrado um novo usuário
+			</li>
+		</ul>
+
+	</article>
+
 </div>

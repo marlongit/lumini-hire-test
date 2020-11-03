@@ -1,0 +1,73 @@
+﻿@page
+@model LuminiHire.Pages.SearchModel
+
+@{
+	ViewData["Title"] = "LuminiHire - Search";
+}
+
+<div class="container">
+
+	<div class="text-center">
+
+		<h2>LuminiHire - Search</h2>
+		<form asp-action="onPostAsync" method="post">
+			<div class="row">
+				<div class="col-10">
+					<input type="text" asp-for="Filtro.Query" class="form-control" placeholder="Ex: University of West Alabama" />
+				</div>
+				<div class="col-2">
+					<input type="submit" class="btn btn-success" />
+				</div>
+			</div>
+			<div>
+				<br />
+			</div>
+			<div class="row col-sm-2">
+
+				Page Size: <input type="number" asp-for="Filtro.PageSize"  />
+
+			</div>
+		</form>
+
+	</div>
+
+	<div>
+		<br />
+	</div>
+	@if (Model.SchoolsData.Count > 0)
+	{
+		<div class="row">
+			<span class="text-info">
+				Toral de Registros: @Model.SchoolsData.Count
+			</span>
+		</div>
+	}
+	<div>
+		<br />
+	</div>
+	<div class="row">
+
+		@foreach (var school in Model.SchoolsData)
+		{
+			<div class="card col-sm-6">
+
+				<div class="card-header">
+
+					@school.instnm
+
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">City: @school.city</h5>
+					<p class="card-text">Unitid: @school.unitid</p>
+					<span> Zip: @school.zip</span>
+				</div>
+			</div>
+		}
+
+	</div>
+
+
+</div>
+
+
+

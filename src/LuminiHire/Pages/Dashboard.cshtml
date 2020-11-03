@@ -1,0 +1,54 @@
+﻿@page
+@model LuminiHire.Pages.DashboardModel
+
+@{
+	ViewData["Title"] = "LuminiHire - Dashboar";
+}
+
+<h1>Dashboard</h1>
+<div class="container">
+
+	<div class="row">
+
+		<div class="card col-sm-6">
+
+			<div class="card-body">
+				<h5 class="card-title">Total City: @Model.Dashboards.Select(s => s.Key).Count() </h5>
+			</div>
+			<div class="card-footer">
+				<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+					Detalhes
+				</a>
+			</div>
+		</div>
+
+	
+		<div class="card col-sm-6">
+
+			<div class="card-body">
+				<h5 class="card-title">Total Schools: @Model.Dashboards.Select(s => s.Value).Sum() </h5>
+			</div>
+		</div>
+	</div>
+	<hr />
+	<div class="collapse" id="collapseExample">
+		<h1>Total schools by city</h1>
+		<div class="row ">
+			@foreach (var item in Model.Dashboards)
+			{
+				<div class="card">
+
+					<div class="card-header">
+
+						<p> @item.Key</p>
+
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">Qtd. Schools: </h5>
+						@item.Value
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</div>
